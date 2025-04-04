@@ -1,0 +1,380 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+    
+}
+
+/* Header Section */
+header {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Navigation Menu */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a.active {
+    background-color: #37ff00;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #37ff00;
+    color: #000;
+}
+
+/* Carousel Section */
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    margin-top: -50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item {
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: all 1s ease;
+}
+.item {
+  
+    filter: brightness(50%); /* Darken the element by reducing brightness */
+    transition: filter 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.item:hover {
+    filter: brightness(100%); /* Restore brightness on hover */
+}
+.carousel .list .item:nth-child(1),.carousel .list .item:nth-child(2) {
+    
+    top: 0px;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.carousel .list .item:nth-child(3){
+    left: 67%
+}
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+.carousel .list .item:nth-child(7){
+    left: calc(67% + 800px);
+}
+.carousel .list .item:nth-child(8){
+    left: calc(67% + 1000px);
+}
+.carousel .list .item:nth-child(9){
+    left: calc(67% + 1200px);
+}
+.carousel .list .item:nth-child(10){
+    left: calc(67% + 1400px);
+}
+/* content section*/
+.content {
+    
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 400px;
+    
+    transform: translateY(-50%);
+    text-align: left;
+    color: rgb(255, 255, 255);
+    z-index: 1000; /* Ensure the content is above the background */
+    display: none;
+}
+.list .item:nth-child(2) .content {
+    display: block;
+}
+.content .name {
+text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards ;
+}
+
+.content .title {
+        color: #37ff00;
+    font-size: 5.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px #00ff596e;
+      opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards ;
+}
+.content .des {
+    font-family: 'Indie Flower', cursive;
+    font-size:18px;
+    margin:10px 0 25px 5px ;
+    text-shadow: 3px 4px 4px rgba(56, 249, 13, 0.537);
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards ;
+}
+/*BUTTONS*/
+.content .btn{
+    margin-left: 5px;
+    display: flex;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards ;
+}
+.content .btn button {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    cursor: pointer;
+    border: 2px solid #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #37ff00 ;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.content .btn button::before,
+.content .btn button::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    transition: width 0.3s ease;
+    z-index: 0; /* Place behind the button text */
+    top: 0;
+    left: 0;
+}
+
+
+
+.content .btn button::after {
+    bottom: 0;
+    right: 0;
+}
+
+.content .btn button:hover::before,
+.content .btn button:hover::after {
+    width: 100%; /* Expand the pseudo-elements on hover */
+}
+
+.content .btn button:hover {
+    background-color: #ffffff8f;
+    border: 2px solid #37ff00;
+    color: #000;
+    transform: scale(1.05);
+    z-index: 1; /* Ensure the button text stays above the pseudo-elements */
+}
+.content .btn button:nth-child(1)   {
+    margin-right: 15px;
+}
+.content .btn button:nth-child(2) {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}       
+.content .btn button:nth-child(2):hover {
+  
+    color: red;
+    transform: scale(1.05);
+    z-index: 1; /* Ensure the button text stays above the pseudo-elements */
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        filter: blur(33px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+.arrows {
+ 
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    max-width: 30%;
+    height: 10px;
+   align-items: center;
+    z-index: 1000;
+    transform: translateY(-50%);
+   
+}
+.arrows button {
+    width: 50px;
+    height: 50px;
+    background-color: #37ff00;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+    color: #fff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.arrows button:hover {
+    color: black;
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/*Running Time*/
+
+.carousel .runningTime{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: #37ff00;
+    animation: runningTime 6.5s linear 1 forwards;
+    z-index:    1000; ;
+}
+@keyframes runningTime {
+from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* Responsive Design */
+
+/* For screens with a max width of 999px */
+@media screen and (max-width: 999px) {
+    header {
+        padding-left: 50px;
+    }
+
+    .list .item {
+        width: 100%; /* Full width for smaller screens */
+        height: 70vh; /* Adjust height to 70% of the viewport height */
+    }
+
+    .list .item .content {
+        left: 50px;
+    }
+
+    .content .name, .content .title {
+        font-size: 70px;
+    }
+
+    .content .des {
+        font-size: 16px;
+    }
+
+    .carousel .list .item {
+        background-size: cover; /* Ensure the image covers the item */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent repetition */
+    }
+}
+
+/* For screens with a max width of 690px */
+@media screen and (max-width: 690px) {
+    header nav a {
+        font-size: 14px;
+        margin-right: 0px;
+    }
+
+    .list .item {
+        width: 100%; /* Full width for smaller screens */
+        height: 60vh; /* Adjust height to 60% of the viewport height */
+    }
+
+    .list .item .content {
+        top: 40%;
+        right: 0;
+        left: 10px;
+    }
+
+    .content .name, .content .title {
+        font-size: 45px;
+    }
+
+    .content .des {
+        font-size: 14px;
+    }
+
+    .content .btn button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .carousel .list .item {
+        background-size: cover; /* Ensure the image covers the item */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent repetition */
+    }
+}
